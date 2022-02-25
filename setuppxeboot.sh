@@ -2,7 +2,7 @@
 SYSTEM_USER_NAME=$(id -un)
 PROCEED=''
 
-if [[ "$SYSTEM_USER_NAME" == 'root' ]]; then
+if [ "$SYSTEM_USER_NAME" == 'root' ]; then
     echo "This will configure tftpd-hpa for pxe booting"
     read -p "Do you want to proceed? " PROCEED
 else
@@ -10,7 +10,7 @@ else
     exit 1
 fi
 
-if [[ "$PROCEED" == 'y' || "$PROCEED" == 'Y' ]]; then
+if [ "$PROCEED" == 'y' || "$PROCEED" == 'Y' ]; then
     apt update
     apt install pxelinux syslinux tftpd-hpa
     mkdir -p /tftp/pxelinux.cfg
